@@ -1,6 +1,6 @@
-# Eksamens JavaScript programmēšanā
+# JavaScript programmēšanas eksāmens
 
-This template should help get you started developing with Vue 3 in Vite.
+Eksāmena dokumentācja https://www.craft.do/s/9FTAjqT4abuRAV
 
 ## Rekomendētie IDE paplašinājumi
 
