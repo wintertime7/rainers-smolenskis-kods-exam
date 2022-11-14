@@ -1,3 +1,7 @@
+<script>
+    
+</script>
+
 <template>
     <div id="login-view">
         <form class="login-form">
