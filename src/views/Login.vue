@@ -6,16 +6,12 @@ export default {
         return {
             email: '',
             password: '',
+            auth
         }
     },
     computed: {
-        isDisabled: function () {
+        isDisabled() {
             return this.email.length < 1 || this.password.length < 6;
-        }
-    },
-    methods: {
-        auth() {
-            auth.authenticate(this.email, this.password);
         }
     }
 }
@@ -30,7 +26,7 @@ export default {
             </div>
             <input v-model="email" id="input-email" placeholder="E-mail" />
             <input v-model="password" id="input-password" type="password" placeholder="Password" />
-            <button id="btn-submit" :disabled="isDisabled" @click="auth()">LOGIN</button>
+            <button id="btn-submit" :disabled="isDisabled" @click="auth.authenticate(email, password)">LOGIN</button>
         </form>
     </div>
 </template>
