@@ -1,4 +1,5 @@
 import { reactive } from "vue";
+import router from '../router';
 
 export const auth = reactive({
   user: {
@@ -17,17 +18,17 @@ export const auth = reactive({
   },
 
   authenticate(email, password) {
-    if (email == "rainers.smolenskis@va.lv" && password == "123456") {
+    if (email === "rainers.smolenskis@va.lv" && password === "123456") {
       localStorage.is_authenticated = true;
       this.is_authenticated = true;
-      router.replace("/");
+      router.replace('/');
     }
   },
 
   logout() {
     localStorage.clear();
     this.is_authenticated = false;
-    router.replace("/login");
+    router.replace('/login');
   },
 
   toggleFavorite(songID) {
@@ -35,7 +36,7 @@ export const auth = reactive({
       if (song != songID) {
         this.user.favorite_songs.push(songID);
       } else {
-        this.user.favorite_songs.splice(index, 1);
+        this.user.favorite_songs.pop(songID);
       }
     });
 
