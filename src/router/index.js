@@ -2,6 +2,9 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 // Importējam vēlamos skatus kurus gribam izmantot
 import Login from '@/views/Login.vue'
+import Songs from '@/views/Songs.vue'
+import Albums from '@/views/Albums.vue'
+import About from '@/views/About.vue'
 
 import { auth } from '../stores/auth'
 
@@ -13,6 +16,18 @@ const routes = [
     {
         path: '/login',
         component: Login,
+    },
+    {
+        path: '/',
+        component: Songs,
+    },
+    {
+        path: '/albums',
+        component: Albums,
+    },
+    {
+        path: '/about',
+        component: About,
     }
 ]
 
