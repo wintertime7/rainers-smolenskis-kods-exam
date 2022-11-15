@@ -14,7 +14,6 @@ export default {
         }
     },
     methods: {
-        //Dienas beigās strādā, tākā viss ok :D
         editFormBtn() {
           this.groupOne = true;
           this.groupTwo = false;

@@ -77,7 +77,6 @@ export default {
             <IconCaretUp />
           </th>
         </tr>
-        <!-- Loop goes on this <tr> element -->
         <tr class="song" v-for="(song, index) in filtered_songs">
           <td id="td-index">
             <IconPlay />
