@@ -18,13 +18,7 @@ export default {
     handleScroll(event) {
       this.$refs.header.classList.value = event.target.scrollTop > 100 ? 'scrolled' : '';
     },
-    setFavoriteBtn() {
-      if (this.show_favorites == false) {
-        this.show_favorites = true;
-      } else {
-        this.show_favorites = false;
-      }
-    },
+    
     getTime(time_ms) {
       var minutes = Math.floor(time_ms / 60000);
       var seconds = ((time_ms % 60000) / 1000).toFixed(0);
@@ -62,7 +56,7 @@ export default {
         <input v-model="search" id="input-search" placeholder="Search by title..." />
       </div>
       <div class="wrapper-settings">
-        <button id="btn-show-favorites" @click="setFavoriteBtn()" v-bind:class="{
+        <button id="btn-show-favorites" @click="show_favorites ? show_favorites = false : show_favorites = true" v-bind:class="{
           active: show_favorites
         }">Show
           Favorites</button>

@@ -1,8 +1,18 @@
 <script>
 import IconGrid from '../components/icons/IconGrid.vue'
+import IconList from '../components/icons/IconList.vue'
 
 export default {
-  components: {IconGrid}
+  components: {IconGrid, IconList},
+  methods: {
+    
+  },
+  data() {
+    return {
+      isIconGrid: false,
+      isIconList: false
+    }
+  }
 }
 
 </script>
@@ -12,8 +22,8 @@ export default {
     <div class="wrapper-header">
         <h1>ALBUMS</h1>
         <div class="settings">
-            <button id="btn-grid"><IconGrid /></button>
-            <button id="btn-list"></button>
+            <button id="btn-grid" @click="isIconGrid ? isIconGrid = false : isIconGrid = true" v-bind:class="{active: isIconGrid}"><IconGrid /></button>
+            <button id="btn-list" @click="isIconList ? isIconList = false : isIconList = true" v-bind:class="{active: isIconList}"><IconList /></button>
         </div>
     </div>
     <ul id="list-albums">
