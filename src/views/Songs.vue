@@ -32,7 +32,17 @@ export default {
     },
 
     getArtists(artists) {
-      return artists[0].name;
+      let temp = '';
+      let len = Object.keys(artists).length;
+
+      artists.forEach((art, index) => {
+        if (index != len - 1) {
+          temp = temp + art.name + ", ";
+        } else {
+          temp = temp + art.name;
+        }
+      });
+      return temp;
     },
 
   },
