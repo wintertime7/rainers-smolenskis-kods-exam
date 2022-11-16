@@ -1,7 +1,7 @@
 <script>
 import songList from '../data/songs'
-import { auth } from '../stores/auth'
 import { player } from '../stores/player'
+import { auth } from '../stores/auth'
 import IconHeart from '../components/icons/IconHeart.vue';
 
 export default {
@@ -9,10 +9,10 @@ export default {
   data() {
     return {
       player,
+      auth,
       search: '',
       show_favorites: false,
       songs: songList,
-      active: true,
       isFavorite: false,
     }
   },
@@ -43,7 +43,7 @@ export default {
 
     selectSong(song) {
       player.setNowPlaying(song);
-    }
+    },
 
   },
   computed: {
@@ -96,7 +96,7 @@ export default {
           <td id="td-album">{{ song.album.name }}</td>
           <td id="td-duration">
             {{ getTime(song.duration_ms) }}
-            <IconHeart />
+            <IconHeart @click="auth.toggleFavorite(song.id)" v-bind:class="{active: auth.getFavoriteSongs().includes(song.id)}" />
           </td>
         </tr>
       </table>

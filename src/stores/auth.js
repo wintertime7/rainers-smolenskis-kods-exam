@@ -6,7 +6,7 @@ export const auth = reactive({
     name: "Rainers",
     surname: "Smolenskis",
     code: "IT20008",
-    favorite_songs: localStorage.getItem("favorite_songs") ?? []
+    favorite_songs: []
   },
 
   is_authenticated: localStorage.is_authenticated ?? false,
@@ -32,13 +32,13 @@ export const auth = reactive({
   },
 
   toggleFavorite(songID) {
-    this.user.favorite_songs.forEach((song, index) => {
-      if (song != songID) {
-        this.user.favorite_songs.push(songID);
-      } else {
-        this.user.favorite_songs.pop(songID);
-      }
-    });
+    let index = this.user.favorite_songs.indexOf(songID);
+
+    if (this.user.favorite_songs.includes(songID) == false) {
+      this.user.favorite_songs.push(songID);
+    } else {
+      this.user.favorite_songs.splice(index, 1);
+    }
 
     localStorage.setItem("favorite_songs", this.user.favorite_songs);
   },
