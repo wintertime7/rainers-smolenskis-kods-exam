@@ -6,7 +6,7 @@ export const auth = reactive({
     name: localStorage.getItem("name") ?? "Rainers",
     surname: localStorage.getItem("surname") ?? "Smolenskis",
     code: localStorage.getItem("code") ?? "IT20008",
-    favorite_songs: []
+    favorite_songs: JSON.parse(localStorage.getItem("favSongs")) ?? []
   },
 
   is_authenticated: localStorage.is_authenticated ?? false,
@@ -43,7 +43,7 @@ export const auth = reactive({
       this.user.favorite_songs.splice(index, 1);
     }
 
-    localStorage.setItem("tests", this.user.favorite_songs);
+    localStorage.setItem("favSongs", JSON.stringify(this.user.favorite_songs));
   },
 
   getFavoriteSongs() {
