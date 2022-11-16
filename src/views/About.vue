@@ -1,4 +1,5 @@
 <script>
+
 import { auth } from '../stores/auth'
 import songList from '../data/songs'
 
@@ -107,7 +108,7 @@ export default {
                       </div>
                   </li>
               </ul>
-              <div id="txt-empty" class="empty">NO SONGS FOUND</div>
+              <div id="txt-empty" class="empty" v-if="!auth.getFavoriteSongs().length">NO SONGS FOUND</div>
           </div>
       </form>
   </div>

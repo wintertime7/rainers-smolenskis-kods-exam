@@ -74,9 +74,7 @@ export default {
       </div>
       <div class="wrapper-settings">
         <button id="btn-show-favorites" @click="show_favorites ? show_favorites = true : show_favorites = false" v-bind:class="{
-          active: show_favorites
-        }">Show
-          Favorites</button>
+          active: show_favorites}">Show Favorites</button>
       </div>
     </div>
     <div class="wrapper-songs">
@@ -94,10 +92,10 @@ export default {
             <IconCaretUp />
           </th>
         </tr>
-        <tr class="song" v-for="(song, index) in filtered_songs" @dblclick="selectSong(song)">
+        <tr class="song" v-for="(song, index) in filtered_songs" @dblclick="selectSong(song)" v-bind:class="{active: song.id == player.getNowPlayingSongId()}">
           <td id="td-index">
             <IconPlay v-if="song.id == player.getNowPlayingSongId()" />
-            <span id="txt-index">{{ index + 1 }}</span>
+            <span id="txt-index" v-if="song.id != player.getNowPlayingSongId()">{{ index + 1 }}</span>
           </td>
           <td id="td-title">
             <img :src="song.album.images[1].url" />
