@@ -45,10 +45,21 @@ export default {
       player.setNowPlaying(song);
     },
 
+    sortBy() {
+
+    }
+
   },
   computed: {
     filtered_songs() {
-      return this.songs;
+      let tests = this.songs;
+      let temp = [];
+      
+      temp = tests.filter((song) => {
+        return song.name.toLowerCase().includes(this.search.toLowerCase())
+      });
+
+      return temp;
     },
   }
 }
