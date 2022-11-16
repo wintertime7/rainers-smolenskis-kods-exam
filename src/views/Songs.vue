@@ -3,6 +3,7 @@ import songList from '../data/songs'
 import { player } from '../stores/player'
 import { auth } from '../stores/auth'
 import IconHeart from '../components/icons/IconHeart.vue';
+import IconPlay from '../components/icons/IconPlay.vue';
 
 export default {
   components: { IconHeart, },
@@ -95,7 +96,7 @@ export default {
         </tr>
         <tr class="song" v-for="(song, index) in filtered_songs" @dblclick="selectSong(song)">
           <td id="td-index">
-            <IconPlay />
+            <IconPlay  />
             <span id="txt-index">{{ index + 1 }}</span>
           </td>
           <td id="td-title">
