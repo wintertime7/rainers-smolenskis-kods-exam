@@ -13,7 +13,7 @@ export default {
       artists.forEach((art, index) => {
         if (index != len - 1) {
           temp = temp + art.name + ", ";
-        } else {
+        } else { 
           temp = temp + art.name;
         }
       });

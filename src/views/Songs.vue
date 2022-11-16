@@ -1,12 +1,14 @@
 <script>
 import songList from '../data/songs'
 import { auth } from '../stores/auth'
+import { player } from '../stores/player'
 import IconHeart from '../components/icons/IconHeart.vue';
 
 export default {
   components: { IconHeart, },
   data() {
     return {
+      player,
       search: '',
       show_favorites: false,
       songs: songList,
@@ -39,6 +41,10 @@ export default {
       return temp;
     },
 
+    selectSong(song) {
+      player.setNowPlaying(song);
+    }
+
   },
   computed: {
     filtered_songs() {
@@ -56,7 +62,7 @@ export default {
         <input v-model="search" id="input-search" placeholder="Search by title..." />
       </div>
       <div class="wrapper-settings">
-        <button id="btn-show-favorites" @click="show_favorites ? show_favorites = false : show_favorites = true" v-bind:class="{
+        <button id="btn-show-favorites" @click="show_favorites ? show_favorites = true : show_favorites = false" v-bind:class="{
           active: show_favorites
         }">Show
           Favorites</button>
@@ -77,7 +83,7 @@ export default {
             <IconCaretUp />
           </th>
         </tr>
-        <tr class="song" v-for="(song, index) in filtered_songs">
+        <tr class="song" v-for="(song, index) in filtered_songs" @dblclick="selectSong(song)">
           <td id="td-index">
             <IconPlay />
             <span id="txt-index">{{ index + 1 }}</span>
