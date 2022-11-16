@@ -3,17 +3,20 @@ import router from '../router';
 
 export const auth = reactive({
   user: {
-    name: "Rainers",
-    surname: "Smolenskis",
-    code: "IT20008",
+    name: localStorage.getItem("name") ?? "Rainers",
+    surname: localStorage.getItem("surname") ?? "Smolenskis",
+    code: localStorage.getItem("code") ?? "IT20008",
     favorite_songs: []
   },
 
   is_authenticated: localStorage.is_authenticated ?? false,
 
   setUserData(name, surname, code) {
+    localStorage.setItem("name", name);
     this.user.name = name;
+    localStorage.setItem("surname", surname);
     this.user.surname = surname;
+    localStorage.setItem("code", code);
     this.user.code = code;
   },
 
@@ -40,7 +43,7 @@ export const auth = reactive({
       this.user.favorite_songs.splice(index, 1);
     }
 
-    localStorage.setItem("favorite_songs", this.user.favorite_songs);
+    localStorage.setItem("tests", this.user.favorite_songs);
   },
 
   getFavoriteSongs() {

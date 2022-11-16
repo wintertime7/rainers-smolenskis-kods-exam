@@ -33,9 +33,7 @@ export default {
       saveBtn() {
           this.groupOne = false;
           this.groupTwo = true;
-          this.auth.user.name = this.newName;
-          this.auth.user.surname = this.newSurname;
-          this.auth.user.code = this.newCode;
+          this.auth.setUserData(this.newName, this.newSurname, this.newCode);
       },
 
       getArtists(artists) {

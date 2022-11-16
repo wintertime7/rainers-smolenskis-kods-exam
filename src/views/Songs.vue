@@ -13,7 +13,6 @@ export default {
       search: '',
       show_favorites: false,
       songs: songList,
-      isFavorite: false,
     }
   },
   methods: {
