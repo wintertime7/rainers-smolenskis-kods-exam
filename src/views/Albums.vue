@@ -40,7 +40,7 @@ export default {
       let albums = [];
       this.songs.forEach((song) => {
         let obj = {
-          id: song.album,
+          album: song.album,
           songs: []
         };
 
